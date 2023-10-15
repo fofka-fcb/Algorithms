@@ -28,6 +28,12 @@ public class Sorts {
 //        System.out.println();
 //        printArray(array);
 
+        //quickSort
+        printArray(array);
+        quickSort(array);
+        System.out.println();
+        printArray(array);
+
     }
 
     public static void printArray(int[] array) {
@@ -89,7 +95,7 @@ public class Sorts {
     }
 
     public static void standingSort(int[] array) {
-        for (int i = 1; i < array.length; i++){
+        for (int i = 1; i < array.length; i++) {
             int current = array[i];
             int j = i;
             while (j > 0 && array[j - 1] > current) {
@@ -98,5 +104,36 @@ public class Sorts {
             }
             array[j] = current;
         }
+    }
+
+    public static void quickSort(int[] array) {
+        recursionQuickSort(array, 0, array.length - 1);
+    }
+
+    public static void recursionQuickSort(int[] array, int min, int max) {
+        if (array.length == 0) return;
+        if (min >= max) return;
+
+        int middle = min + (max - min) / 2;
+        int middleElement = array[middle];
+
+        int i = min, j = max;
+        while (i <= j) {
+            while (array[i] < middleElement) {
+                i++;
+            }
+            while (array[j] > middleElement) {
+                j--;
+            }
+            if (i <= j) {
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                i++;
+                j++;
+            }
+        }
+        if (min < j) recursionQuickSort(array, min, j);
+        if (max > i) recursionQuickSort(array, i, max);
     }
 }
