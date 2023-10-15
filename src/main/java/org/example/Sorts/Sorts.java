@@ -23,10 +23,10 @@ public class Sorts {
 //        printArray(array);
 
         //standing sort
-        printArray(array);
-        standingSort(array);
-        System.out.println();
-        printArray(array);
+//        printArray(array);
+//        standingSort(array);
+//        System.out.println();
+//        printArray(array);
 
     }
 
