@@ -29,8 +29,14 @@ public class Sorts {
 //        printArray(array);
 
         //quickSort
+//        printArray(array);
+//        quickSort(array);
+//        System.out.println();
+//        printArray(array);
+
+        //countSort
         printArray(array);
-        quickSort(array);
+        countSort(array);
         System.out.println();
         printArray(array);
 
@@ -135,5 +141,24 @@ public class Sorts {
         }
         if (min < j) recursionQuickSort(array, min, j);
         if (max > i) recursionQuickSort(array, i, max);
+    }
+
+
+    public static void countSort(int[] array) {
+        final int MAX_VALUE = 100;
+
+        int[] count = new int[MAX_VALUE];
+
+        for (int i = 0; i < array.length; i++) {
+            count[array[i]] = count[array[i]] + 1;
+        }
+
+        int arrayindex = 0;
+        for (int i = 0; i < count.length; i++) {
+            for (int j = 0; j < count[i]; j++) {
+                array[arrayindex] = i;
+                arrayindex++;
+            }
+        }
     }
 }
