@@ -5,40 +5,46 @@ public class Sorts {
     public static void main(String[] args) {
         int[] array = new int[]{11, 17, 2, 35, 67, 5, 21, 48, 54, 79};
         //bubble sort
+//        System.out.println("bubbleSort");
 //        printArray(array);
 //        bubbleSort(array);
 //        System.out.println();
 //        printArray(array);
 
         //comb sort
+//        System.out.println("combSort");
 //        printArray(array);
 //        combSort(array);
 //        System.out.println();
 //        printArray(array);
 
         //selection sort
+//        System.out.println("selectionSort");
 //        printArray(array);
 //        selectionSort(array);
 //        System.out.println();
 //        printArray(array);
 
         //standing sort
+//        System.out.println("standingSort");
 //        printArray(array);
 //        standingSort(array);
 //        System.out.println();
 //        printArray(array);
 
         //quickSort
+//        System.out.println("quickSort");
 //        printArray(array);
 //        quickSort(array);
 //        System.out.println();
 //        printArray(array);
 
         //countSort
-        printArray(array);
-        countSort(array);
-        System.out.println();
-        printArray(array);
+//        System.out.println("countSort");
+//        printArray(array);
+//        countSort(array);
+//        System.out.println();
+//        printArray(array);
 
     }
 
@@ -124,14 +130,14 @@ public class Sorts {
         int middleElement = array[middle];
 
         int i = min, j = max;
-        while (i <= j) {
-            while (array[i] < middleElement) {
+        while (i<= j){
+            while (array[i] < middleElement){
                 i++;
             }
-            while (array[j] > middleElement) {
+            while (array[j] > middleElement){
                 j--;
             }
-            if (i <= j) {
+            if (i<=j){
                 int temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
@@ -141,23 +147,23 @@ public class Sorts {
         }
         if (min < j) recursionQuickSort(array, min, j);
         if (max > i) recursionQuickSort(array, i, max);
-    }
+     }
 
 
     public static void countSort(int[] array) {
-        final int MAX_VALUE = 100;
+        final int MAX = 100;
 
-        int[] count = new int[MAX_VALUE];
+        int[] count = new int[MAX];
 
         for (int i = 0; i < array.length; i++) {
             count[array[i]] = count[array[i]] + 1;
         }
 
-        int arrayindex = 0;
+        int arrayIndex = 0;
         for (int i = 0; i < count.length; i++) {
             for (int j = 0; j < count[i]; j++) {
-                array[arrayindex] = i;
-                arrayindex++;
+                array[arrayIndex] = i;
+                arrayIndex++;
             }
         }
     }
